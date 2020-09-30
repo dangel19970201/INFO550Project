@@ -1,4 +1,5 @@
 ## Repository for INFO 550 Project
+
 Data: The eighth version of the GTEx dataset. We obtained RNA-seq gene expression levels from 15253 tissue samples (54 unique tissue types) from 948 unique subjects in the GTEx Project data released in 2017. Of the individuals with gene expression data, genome-wide genotypes were available for 838 individuals. While all 15201 tissue samples were used (to generate the quantitative traits--individual-level pathway scores such as GSVA scores, z-scores, PLAGE, and sing-scores) of gene expression, we used the 49 tissues with the largest sample sizes (n > 70) when calculating. 69763935 non-ambiguous strand SNPs were retained for subsequent analyses of heritability. 
 
 Before the analysis, I have done the following:
@@ -12,3 +13,13 @@ So the data used here is the summarized information about the heritability calcu
 For my project, I will do subsequent analyses of heritability, including further summarizing the heritability values, drawing heatmaps, analyzing the pattern of different methods, and so on.
 
 To analyze the data you will need to install some R packages: ggplot2, ComplexHeatmap, circlize, dplyr. The required packages can be installed using R commands.
+
+## Execute the analysis
+
+To execute the analysis, from the project folder you can run
+
+```{r}
+Rscript -e "rmarkdown::render('report.Rmd')"
+```
+
+This will create a file called report.html output in your directory that contains the results. This will also generate .csv files including the summarized heritability information. You can change the output directory in the RMD file.
