@@ -23,3 +23,12 @@ Rscript -e "rmarkdown::render('report.Rmd')"
 ```
 
 This will create a file called report.html output in your directory that contains the results. This will also generate .csv files including the summarized heritability information. You can change the output directory in the RMD file.
+
+If you have trouble when install ComplexHeatmap, please try the following code in R:
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("ComplexHeatmap")
+```
