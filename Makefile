@@ -1,6 +1,7 @@
 # rule for making report  
 report.html: figs/comparefig.png summary R/report.Rmd
-	Rscript -e "rmarkdown::render('R/report.Rmd', quiet = TRUE)"
+	cd R && \
+	Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE, output_file='../report.html')"
 
 .PHONY: report
 report: report.html

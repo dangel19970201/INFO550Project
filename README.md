@@ -28,7 +28,7 @@ To execute the analysis, from the project folder you can run
 make report
 ```
 
-This will create a file called report.html output ./R that contains the results. This will also generate .csv files including the summarized heritability information.
+This will create a file called report.html that contains the results. This will also generate .csv files including the summarized heritability information.
 
 To see more helpful information about the Makefile, from the project folder you can run
 
@@ -55,9 +55,9 @@ Project/
 		R/summary_matrix.R  
 		R/data_summary.R  
 		R/make_comparefig.R  
-		R/report.Rmd  
-		R/report.html  
+		R/report.Rmd   
 	figs/  
 		figs/comparefig.png  
+	report.html 
 	Makefile  
 	README.md  
