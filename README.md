@@ -16,19 +16,22 @@ To analyze the data you will need to install some R packages: ggplot2, ComplexHe
 
 ## Execute the analysis
 
-To execute the analysis, from the project folder you can run
+To install all the needed R packages, from the project folder you can run
 
-```{r}
-Rscript -e "rmarkdown::render('report.Rmd')"
+```
+make install
 ```
 
-This will create a file called report.html output in your directory that contains the results. This will also generate .csv files including the summarized heritability information. You can change the output directory in the RMD file.
+To execute the analysis, from the project folder you can run
 
-If you have trouble when install ComplexHeatmap, please try the following code in R:
+```
+make report
+```
 
-```{r}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+This will create a file called report.html output ./R that contains the results. This will also generate .csv files including the summarized heritability information.
 
-BiocManager::install("ComplexHeatmap")
+To see more helpful information about the Makefile, from the project folder you can run
+
+```
+make help
 ```
