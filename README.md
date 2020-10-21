@@ -35,3 +35,29 @@ To see more helpful information about the Makefile, from the project folder you 
 ```
 make help
 ```
+
+## File structure
+
+Project/
+
+	raw_data/  
+		raw_data/resultg.RData  
+		raw_data/resultp.RData  
+		raw_data/results.RData  
+		raw_data/resultz.RData  
+	data/  
+		data/summaryg.csv  
+		data/summaryp.csv  
+		data/summarys.csv  
+		data/summaryz.csv  
+	R/  
+		R/summary_long.R  
+		R/summary_matrix.R  
+		R/data_summary.R  
+		R/make_comparefig.R  
+		R/report.Rmd  
+		R/report.html  
+	figs/  
+		figs/comparefig.png  
+	Makefile  
+	README.md  
