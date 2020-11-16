@@ -43,9 +43,12 @@ To download a built Docker image from DockerHub, you can run
 ```
 docker pull dangel19970201/proj
 ```
-Or
+or
+```
+docker pull dangel19970201/proj:latest
+```
 
-You can also build the docker image locally, from the **project** folder running
+Also, you can build the docker image locally, from the **project** folder running
 ```
 make build
 ```
