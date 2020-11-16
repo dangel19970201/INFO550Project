@@ -54,7 +54,13 @@ make build
 ```
 The name of the image is proj.
 
-To execute the analysis in a Docker container, from the **project** folder you can run
+To execute the analysis in a Docker container:
+
+If you download a built Docker image from DockerHub, from current folder you can run
+```
+docker run -v /localpath/report:/project/report dangel19970201/proj
+```
+If you build the docker image locally, from the **project** folder you can run
 ```
 docker run -v /localpath/report:/project/report proj
 ```
