@@ -27,7 +27,10 @@ The number of missing values for singscores: `r sum(is.na(summarys))`
 The number of missing values for z-scores: `r sum(is.na(summaryz))`  
 
 ### Compare heatmaps across four methods
-![heatmaps across four methods](../figs/comparefig.png)  
+![heatmaps for singscores](../figs/heatmaps.png)  
+![heatmaps for z-scores](../figs/heatmapz.png)  
+![heatmaps for PLAGE scores](../figs/heatmapp.png)  
+![heatmaps for GSVA scores](../figs/heatmapg.png)  
 
 ### Calculate the correlation matrix between four methods using all the heritability data
 ```{r,warning=FALSE}

@@ -14,15 +14,17 @@ For my project, I will do subsequent analyses of heritability, including further
 
 To analyze the data you will need to install some R packages: ggplot2, ComplexHeatmap, circlize, dplyr. The required packages can be installed using R commands.
 
-## Execute the analysis
+*Since the 'ComplexHeatmap' package is not available in R version >=4.0.3, we only show heatmaps for different methods instead of the compared heatmap.*
 
-To install all the needed R packages, from the project folder you can run
+## Execute the analysis (using your own environment)
+
+To install all the needed R packages, from the **project** folder you can run
 
 ```
 make install
 ```
 
-To execute the analysis, from the project folder you can run
+To execute the analysis, from the **project** folder you can run
 
 ```
 make report
@@ -36,28 +38,21 @@ To see more helpful information about the Makefile, from the project folder you 
 make help
 ```
 
-## File structure
+## Execute the analysis (using Docker image)
+To download a built Docker image from DockerHub, you can run
+```
+docker pull dangel19970201/proj
+```
+Or
 
-Project/
+You can also build the docker image locally, from the **project** folder running
+```
+make build
+```
+The name of the image is proj.
 
-	raw_data/  
-		raw_data/resultg.RData  
-		raw_data/resultp.RData  
-		raw_data/results.RData  
-		raw_data/resultz.RData  
-	data/  
-		data/summaryg.csv  
-		data/summaryp.csv  
-		data/summarys.csv  
-		data/summaryz.csv  
-	R/  
-		R/summary_long.R  
-		R/summary_matrix.R  
-		R/data_summary.R  
-		R/make_comparefig.R  
-		R/report.Rmd   
-	figs/  
-		figs/comparefig.png  
-	report.html 
-	Makefile  
-	README.md  
+To execute the analysis in a Docker container, from the **project** folder you can run
+```
+docker run -v /localpath/report:/project/report proj
+```
+Replace the **localpath** with the path that you want to save the report on your own computer. You will then find a folder named **report** with the report.html in it.

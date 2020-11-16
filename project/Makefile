@@ -1,22 +1,24 @@
 # rule for making report  
-report.html: figs/comparefig.png summary R/report.Rmd
+report.html: figures summary R/report.Rmd
 	cd R && \
-	Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE, output_file='../report.html')"
+	Rscript -e "rmarkdown::render('report.Rmd', output_file='../report/report.html')"
 
 .PHONY: report
 report: report.html
 
+.PHONY: build
+build: 
+	docker build -t proj .
+
 # PHONY rule for install R package 
 .PHONY: install
 install:
-	Rscript -e 'if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")' &&\
-	Rscript -e 'if (!require("ComplexHeatmap")) BiocManager::install("ComplexHeatmap")'
-	Rscript -e 'if (!require("ggplot2")) install.packages("ggplot2")'
-	Rscript -e 'if (!require("circlize")) install.packages("circlize")'
-	Rscript -e 'if (!require("dplyr")) install.packages("dplyr")'
+	Rscript -e 'if (!require("ggplot2")) install.packages("ggplot2",repos="http://cran.us.r-project.org")'
+	Rscript -e 'if (!require("dplyr")) install.packages("dplyr",repos="http://cran.us.r-project.org")'
 
 # rule for making figs  
-figs/comparefig.png: R/make_comparefig.R summary
+.PHONY: figures
+figures: summary R/make_comparefig.R 
 	chmod +x R/make_comparefig.R && \
 	Rscript R/make_comparefig.R
 
@@ -41,3 +43,8 @@ help:
 	@echo "summary : Generate summary of raw_data and output as .csv files." 
 	@echo "figs/comparefig.png : Make heatmaps across methods."
 	@echo "clean : Remove cleaned data, figure and report."
+	@echo "build : Build the docker image named proj"
+
+
+
+
